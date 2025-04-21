@@ -1,0 +1,148 @@
+.requisite {
+    padding-top: 20px;
+    padding-bottom: 43px;
+}
+
+.requi__header {
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.requi__content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+.requi__map {
+    color: white;
+    padding-top: 10px;
+    flex: -1;
+}
+
+.requi__block {
+    color: white;
+    padding-top: 20px;
+}
+
+.requi__block h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.requi__block ul li {
+    display: flex;
+    align-items: center;
+    border-left: 3px solid #DAA520;
+    font-size: 18px;
+    margin: 10px 0;
+    padding-left: 12px;
+    gap: 18px;
+}
+
+.requi__header h2 {
+    font-size: 2rem;
+}
+
+
+@media (max-width: 600px) {
+    .requisite {
+      padding-top: 15px;
+      padding-bottom: 30px;
+    }
+  
+    .requi__header {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .requi__header h2 {
+      font-size: 1.5rem;
+    }
+  
+    .requi__content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+      margin-top: 20px;
+    }
+  
+    .requi__map {
+      padding-top: 20px;
+      width: 100%;
+    }
+  
+    .requi__block h3 {
+      font-size: 1.2rem;
+    }
+  
+    .requi__block ul li {
+      font-size: 16px;
+      gap: 12px;
+    }
+  }
+  
+
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .requisite {
+      padding-top: 20px;
+      padding-bottom: 35px;
+    }
+  
+    .requi__header {
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+  
+    .requi__header h2 {
+      font-size: 1.75rem;
+    }
+  
+    .requi__content {
+      gap: 20px;
+    }
+  
+    .requi__map {
+      width: 60%;
+    }
+  
+    .requi__block h3 {
+      font-size: 1.3rem;
+    }
+  
+    .requi__block ul li {
+      font-size: 17px;
+      gap: 15px;
+    }
+  }
+  
+
+  @media (min-width: 1440px) {
+    .requi__header h2 {
+      font-size: 2rem;
+    }
+  
+    .requi__content {
+      gap: 20px;
+    }
+  
+    .requi__map {
+      padding-top: 10px;
+      flex: 1;
+    }
+  
+    .requi__block h3 {
+      font-size: 1.5rem;
+    }
+  
+    .requi__block ul li {
+      font-size: 18px;
+    }
+  }
+  

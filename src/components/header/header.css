@@ -1,0 +1,234 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+.header.visible {
+  background: #252A2E;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header.hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.header__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0; /* Убираем промежуток между элементами */
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  column-gap: 13px;
+}
+
+.header__logo img {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+}
+
+.header__logo span {
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+
+.header__nav ul {
+  display: flex;
+  align-items: center;
+  column-gap: 50px;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.header__nav button,
+.header__nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.header__nav button:hover,
+.header__nav a:hover {
+  color: #ddd;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.burger__line {
+  height: 4px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.header__nav.open {
+  display: flex;
+}
+
+/* Языковой переключатель */
+.lang-switcher {
+  position: relative;
+  margin-left: 20px; /* Минимальный отступ от навигации */
+  z-index: 2000; /* Поверх хедера */
+}
+
+.lang-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.lang-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  border-radius: 8px;
+  padding: 5px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 2000;
+}
+
+.lang-menu img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.lang-menu img:hover {
+  transform: scale(1.1);
+}
+
+.lang-menu-portal {
+  position: absolute;
+  top: 70px; /* можешь адаптировать по высоте хедера */
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 3000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.lang-menu-portal img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.lang-menu-portal img:hover {
+  transform: scale(1.1);
+}
+
+
+@media (min-width: 300px) and (max-width: 1040px) {
+    .header__row {
+      padding: 0 15px;
+    }
+  
+    .header__nav ul {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      background: rgba(37, 42, 46, 0.9);
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 200px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+  
+    .header__nav.open ul {
+      display: flex;
+    }
+  
+    .burger {
+      display: flex;
+    }
+  
+    .header__logo span {
+      font-size: 20px;
+    }
+  
+    .header__nav button,
+    .header__nav a {
+      font-size: 16px;
+    }
+  }
+  
+
+  @media (min-width: 1041px) and (max-width: 1920px) {
+    .header__nav ul {
+      column-gap: 15px;
+    }
+  
+    .burger {
+      display: none;
+    }
+  }
+  
+
+  @media (min-width: 1921px) {
+    .burger {
+      display: none;
+    }
+  
+    .header__nav ul {
+      display: flex !important;
+    }
+  }
+  

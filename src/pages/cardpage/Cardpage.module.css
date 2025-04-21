@@ -1,0 +1,149 @@
+.card {
+    position: relative;
+    width: 400px;
+    height: 650px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .card__imageWrapper {
+    position: relative;
+    height: 80%;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .card__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .card__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    opacity: 0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    transition: opacity 0.3s ease;
+    overflow-y: auto; 
+    max-height: 100%; 
+  }
+  
+  .card__imageWrapper:hover .card__overlay {
+    opacity: 1; 
+  }
+  
+  .card__overlayText {
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.5;
+    padding: 10px;
+    max-height: 70%; 
+    overflow-y: auto; 
+  }
+  
+  .card__body {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+    align-items: center;
+  }
+  
+  .card__title {
+    margin-bottom: 7px;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 1.56;
+    letter-spacing: -0.04em;
+  }
+  
+  .card__muted {
+    font-size: 16px;
+  }
+  
+  .card__icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+
+@media (max-width: 600px) {
+  .card {
+    max-width: 95%;
+    height: 500px;
+  }
+
+  .card__title {
+    font-size: 22px;
+  }
+
+  .card__muted {
+    font-size: 13px;
+  }
+
+  .card__overlayText {
+    font-size: 14px;
+  }
+
+  .card__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .card__body {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 5px;
+  }
+}
+
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .card {
+    max-width: 90%;
+    height: 550px;
+  }
+
+  .card__title {
+    font-size: 26px;
+  }
+
+  .card__muted {
+    font-size: 14px;
+  }
+
+  .card__overlayText {
+    font-size: 16px;
+  }
+}
+
+
+@media (min-width: 1440px) {
+  .card {
+    height: 700px;
+  }
+
+  .card__title {
+    font-size: 36px;
+  }
+
+  .card__muted {
+    font-size: 18px;
+  }
+
+  .card__overlayText {
+    font-size: 20px;
+  }
+}
