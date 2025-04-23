@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react";
 import bgImage from "./../../img/photo/bg5.jpg";
 import "./parallax.css";
-
+import { useTranslation } from 'react-i18next';
 const Parallax = () => {
   const imageRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,13 +23,10 @@ const Parallax = () => {
       <div className="container">
         <div className="promo__text">
           <div className="promo__title">
-            Надёжные решения в IT, ГИС и строительстве
+            {t('parallax.title')}
           </div>
           <div className="promo__derec">
-            Мы — команда профессионалов, реализующая проекты полного цикла: от
-            цифровых продуктов и геоинформационных систем до проектирования и
-            строительства объектов. Работаем точно, эффективно и с гарантией
-            результата
+          {t('parallax.derec')}
           </div>
         </div>
         <div className="promo_img">

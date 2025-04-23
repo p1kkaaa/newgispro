@@ -7,6 +7,7 @@ import Person from './../../img/object/person.png';
 import Car from './../../img/object/car.png';
 import Bus from './../../img/object/bus.png';
 import Truck from './../../img/object/truck.png';
+import { useTranslation } from 'react-i18next';
 
 const icons = {
   person: new L.Icon({ iconUrl: Person, iconSize: [30, 30] }),
@@ -33,7 +34,7 @@ const initialData = [
 function MonitoringL() {
   const [filter, setFilter] = useState([]);
   const [data, setData] = useState(initialData);
-
+  const { t } = useTranslation()
   const toggleFilter = (type) => {
     setFilter((prev) => {
       const isEnabled = prev.includes(type);
@@ -94,7 +95,7 @@ function MonitoringL() {
     <div className="container">
       <div className="monitoring-container">
         <div className="sidebar">
-          <h3>Фильтр объектов</h3>
+          <h3>{t('monitorl.monitorltit')}</h3>
           {['person', 'car', 'minibus', 'truck'].map((type) => (
             <label key={type}>
               <input

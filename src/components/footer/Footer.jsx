@@ -1,16 +1,18 @@
+import { useTranslation } from 'react-i18next';
 import './footer.css'
 
 
 
 const Footer = () => {
+    const { t } = useTranslation()
     return ( 
         <div className="footer">
             <div className="container">
                 <div className="footer__text">
-                2025 © GIS PRO. Все права защищены.
+                {t('footer.footertxt')}
                 </div>
                 <button className="scroll" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-                    Вернуться к началу
+                {t('footer.footerscrl')}
                 </button>
             </div>
         </div>

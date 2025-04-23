@@ -1,8 +1,112 @@
 {
-    "header": {
-      "home": "Home",
-      "about": "About",
-      "contact": "Contact"
-    }
+  "about": {
+    "abouttit": "About Us",
+    "aboutc1": "Our company is a team of specialists united by the desire to create technological and efficient solutions in the field of information technology, geographic information systems, and design.",
+    "aboutc2": "We provide a full cycle of services—from idea and analysis to development, implementation, and support. Our approach combines engineering precision, modern IT solutions, and a deep understanding of clients' business challenges.",
+    "aboutc3": "We confidently implement both digital projects (web services, mobile applications, GIS platforms) and complex infrastructure and construction tasks: from topographic surveying to designing and constructing buildings.",
+    "aboutc4": "Our goal is not just to complete the work, but to create a solution that brings real value. We work honestly, reliably, and always with a focus on results."
+  },
+  "achiev": {
+    "achietit": "Our Achievements",
+    "achietit2": "This is the result of many years of experience and hard work.",
+    "achiecount": "Market Experience",
+    "achiecount2": "Successful Projects",
+    "achiecount3": "Satisfied Clients",
+    "achiemute": "We are proud that over the years of our activity, we have become a reliable partner for many companies, providing innovative solutions and guaranteeing high quality at every stage. We strive for excellence, constantly improving our processes and expanding opportunities for clients."
+  },
+  "card": {
+    "cardover": "Development of a 3D terrain model based on geographic information",
+    "cardbtn": "Read more...",
+    "cardtit": "Title&Title"
+  },
+  "footer": {
+    "footertxt": "2025 © GIS PRO. All rights reserved.",
+    "footerscrl": "Back to top"
+  },
+  "nav": {
+    "news": "News",
+    "services": "Services",
+    "about": "About Us",
+    "projects": "Projects",
+    "achievements": "Achievements",
+    "partners": "Our Partners",
+    "requisites": "Requisites",
+    "monitoring": "Monitoring"
+  },
+  "news": {
+    "newstxt": "News"
+  },
+  "parallax": {
+    "title": "Reliable solutions in IT, GIS, and construction",
+    "derec": "We are a team of professionals implementing full-cycle projects: from digital products and geographic information systems to the design and construction of facilities. We work precisely, efficiently, and with guaranteed results."
+  },
+  "partners": {
+    "part_tit": "Our Partners",
+    "part_mute": "We collaborate with leading companies to ensure the best quality of services"
+  },
+  "projectcard": {       
+    "overtxt": "Development of an innovative project using the latest technologies",
+    "btntext": "View",
+    "tittxt": "Title&Title"
+  },
+  "projects": {
+    "projtxt": "Our Projects"
+  },
+  "requisite": {
+    "requtxt": "Requisites",
+    "requcont": "Contacts:",
+    "requsoci": "Social Networks:",
+    "requadres": "Address:",
+    "requcity": "Bishkek, Toktonalieva St. 4B",
+    "requgraf": "Mon-Fri 09:00-18:00"
+  },
+  "services": {
+    "servtit": "What We Can Do",
+    "servmut": "We are pleased to offer you the following types of services:",
+    "servcolum": "IT and Turnkey Development",
+    "servcolum3": "Geodesy and GIS",
+    "servcolum2": "Design and Construction",
+    "servit": "Analysis, audit, preparation of technical documentation",
+    "servit2": "UI/UX design and interface design",
+    "servit3": "Development of web services, mobile and corporate applications",
+    "servit4": "API implementation, integration with external systems",
+    "servit5": "DevOps, server setup, CI/CD",
+    "servit6": "Support, technical assistance",
+    "servgis": "Topographic surveying and geodetic investigations",
+    "servgis2": "Working with modern geodetic instruments",
+    "servgis3": "Determining object coordinates and building 3D models",
+    "servgis4": "Scanning, vectorization, and creation of electronic digital maps",
+    "servgis5": "Development of GIS portals and data publication on the Internet",
+    "servgis6": "Working with spatial data databases",
+    "servpro": "Development of master plans for settlements",
+    "servpro2": "Design of residential and public buildings",
+    "servpro3": "Comprehensive implementation of turnkey projects",
+    "servpro4": "Construction of residential complexes and infrastructure facilities"
+  },
+  "cardpage": {
+    "cardpovertxt": "Detailed Description",
+    "cardptit": "Title&Title",
+    "cardpmute": "Brief summary..."
+  },
+  "footerpage": {
+    "footerptxt": "2025 © GIS PRO. All rights reserved.",
+    "footerpscrl": "Back to top"
+  },
+  "monitorl": {
+    "monitorltit": "Object Filter"
+  },
+  "monitor": {
+    "monitortit": "Monitoring"
+  },
+  "newspage": {
+    "newstpage": "News"
+  },
+  "projectcardpage": {
+    "projectcardove": "Detailed Description",
+    "projectcardtit": "Title&Title",
+    "projectcardmute": "Brief description..."
+  },
+  "projectpage": {
+    "projectptit": "Our Projects"
   }
-  
+}

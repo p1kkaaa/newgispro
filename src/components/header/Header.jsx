@@ -1,33 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-
 import ReactDOM from 'react-dom';
+
 import './header.css';
 import logo from './../../img/logo/logo.jpg';
 import ruFlag from './../../img/icon/ru.png';
 import enFlag from './../../img/icon/en.png';
 import kgFlag from './../../img/icon/kg.png';
+
 import { useTranslation } from 'react-i18next';
+import i18n from './../../i18n/i18n'; // путь может отличаться в зависимости от структуры проекта
 
 function Header() {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState('ru');
   const lastScrollYRef = useRef(0);
   const navigate = useNavigate();
   const location = useLocation();
-  const { t } = useTranslation()
 
-  useEffect(() => {
-    const savedLang = localStorage.getItem('lang');
-    if (savedLang) {
-      setCurrentLang(savedLang);
-    } else {
-      setCurrentLang('ru');
-      localStorage.setItem('lang', 'ru');
-    }
-  }, []);
+  const currentLang = i18n.language || 'ru';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,8 +55,7 @@ function Header() {
   };
 
   const handleLangChange = (lang) => {
-    setCurrentLang(lang);
-    localStorage.setItem('lang', lang);
+    i18n.changeLanguage(lang);
     setIsLangMenuOpen(false);
   };
 
@@ -116,14 +108,14 @@ function Header() {
               {/* Навигация */}
               <nav className={`header__nav ${isMenuOpen ? 'open' : ''}`} role="navigation">
                 <ul>
-                  <li><Link to="/newspage" onClick={() => setIsMenuOpen(false)}>Новости</Link></li>
-                  <li><button onClick={() => scrollToSection('#services')}>Услуги</button></li>
-                  <li><button onClick={() => scrollToSection('#about')}>О нас</button></li>
-                  <li><Link to="/projectpage" onClick={() => setIsMenuOpen(false)}>Проекты</Link></li>
-                  <li><button onClick={() => scrollToSection('#achievement')}>Достижения</button></li>
-                  <li><button onClick={() => scrollToSection('#partners')}>Наши партнеры</button></li>
-                  <li><button onClick={() => scrollToSection('#requisite')}>Реквизиты</button></li>
-                  <li><Link to="/monitoringpage" onClick={() => setIsMenuOpen(false)}>Мониторинг</Link></li>
+                  <li><Link to="/newspage" onClick={() => setIsMenuOpen(false)}>{t('nav.news')}</Link></li>
+                  <li><button onClick={() => scrollToSection('#services')}>{t('nav.services')}</button></li>
+                  <li><button onClick={() => scrollToSection('#about')}>{t('nav.about')}</button></li>
+                  <li><Link to="/projectpage" onClick={() => setIsMenuOpen(false)}>{t('nav.projects')}</Link></li>
+                  <li><button onClick={() => scrollToSection('#achievement')}>{t('nav.achievements')}</button></li>
+                  <li><button onClick={() => scrollToSection('#partners')}>{t('nav.partners')}</button></li>
+                  <li><button onClick={() => scrollToSection('#requisite')}>{t('nav.requisites')}</button></li>
+                  <li><Link to="/monitoringpage" onClick={() => setIsMenuOpen(false)}>{t('nav.monitoring')}</Link></li>
                 </ul>
               </nav>
 
