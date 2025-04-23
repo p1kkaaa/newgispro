@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import ReactDOM from 'react-dom';
 
 import './header.css';
 import logo from './../../img/logo/logo.jpg';
@@ -9,13 +8,12 @@ import enFlag from './../../img/icon/en.png';
 import kgFlag from './../../img/icon/kg.png';
 
 import { useTranslation } from 'react-i18next';
-import i18n from './../../i18n/i18n'; // путь может отличаться в зависимости от структуры проекта
+import i18n from './../../i18n/i18n';
 
 function Header() {
   const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const lastScrollYRef = useRef(0);
   const navigate = useNavigate();
   const location = useLocation();
@@ -54,11 +52,6 @@ function Header() {
     }
   };
 
-  const handleLangChange = (lang) => {
-    i18n.changeLanguage(lang);
-    setIsLangMenuOpen(false);
-  };
-
   const getFlagSrc = (lang) => {
     switch (lang) {
       case 'ru': return ruFlag;
@@ -68,83 +61,59 @@ function Header() {
     }
   };
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu-portal')) {
-        setIsLangMenuOpen(false);
-      }
-    };
-    if (isLangMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isLangMenuOpen]);
+  const handleLangCycle = () => {
+    const langs = ['ru', 'en', 'kg'];
+    const currentIndex = langs.indexOf(currentLang);
+    const nextLang = langs[(currentIndex + 1) % langs.length];
+    i18n.changeLanguage(nextLang);
+  };
 
   return (
-    <>
-      <header className={`header ${isVisible ? 'visible' : 'hidden'}`}>
-        <div className="container">
-          <div className="header__row">
+    <header className={`header ${isVisible ? 'visible' : 'hidden'}`}>
+      <div className="container">
+        <div className="header__row">
 
-            <Link to="/" className="header__logo" onClick={() => setIsMenuOpen(false)}>
-              <img src={logo} alt="Logo" />
-              <span>GISPRO</span>
-            </Link>
+          <Link to="/" className="header__logo" onClick={() => setIsMenuOpen(false)}>
+            <img src={logo} alt="Logo" />
+            <span>GISPRO</span>
+          </Link>
 
-            <div className="header__right">
-              {/* Бургер */}
-              <button
-                className="burger"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label="Открыть меню"
-              >
-                <span className="burger__line"></span>
-                <span className="burger__line"></span>
-                <span className="burger__line"></span>
-              </button>
+          <div className="header__right">
+            <button
+              className="burger"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Открыть меню"
+            >
+              <span className="burger__line"></span>
+              <span className="burger__line"></span>
+              <span className="burger__line"></span>
+            </button>
 
-              {/* Навигация */}
-              <nav className={`header__nav ${isMenuOpen ? 'open' : ''}`} role="navigation">
-                <ul>
-                  <li><Link to="/newspage" onClick={() => setIsMenuOpen(false)}>{t('nav.news')}</Link></li>
-                  <li><button onClick={() => scrollToSection('#services')}>{t('nav.services')}</button></li>
-                  <li><button onClick={() => scrollToSection('#about')}>{t('nav.about')}</button></li>
-                  <li><Link to="/projectpage" onClick={() => setIsMenuOpen(false)}>{t('nav.projects')}</Link></li>
-                  <li><button onClick={() => scrollToSection('#achievement')}>{t('nav.achievements')}</button></li>
-                  <li><button onClick={() => scrollToSection('#partners')}>{t('nav.partners')}</button></li>
-                  <li><button onClick={() => scrollToSection('#requisite')}>{t('nav.requisites')}</button></li>
-                  <li><Link to="/monitoringpage" onClick={() => setIsMenuOpen(false)}>{t('nav.monitoring')}</Link></li>
-                </ul>
-              </nav>
+            <nav className={`header__nav ${isMenuOpen ? 'open' : ''}`} role="navigation">
+              <ul>
+                <li><Link to="/newspage" onClick={() => setIsMenuOpen(false)}>{t('nav.news')}</Link></li>
+                <li><button onClick={() => scrollToSection('#services')}>{t('nav.services')}</button></li>
+                <li><button onClick={() => scrollToSection('#about')}>{t('nav.about')}</button></li>
+                <li><Link to="/projectpage" onClick={() => setIsMenuOpen(false)}>{t('nav.projects')}</Link></li>
+                <li><button onClick={() => scrollToSection('#achievement')}>{t('nav.achievements')}</button></li>
+                <li><button onClick={() => scrollToSection('#partners')}>{t('nav.partners')}</button></li>
+                <li><button onClick={() => scrollToSection('#requisite')}>{t('nav.requisites')}</button></li>
+                <li><Link to="/monitoringpage" onClick={() => setIsMenuOpen(false)}>{t('nav.monitoring')}</Link></li>
+              </ul>
+            </nav>
 
-              {/* Языковая иконка */}
-              <div className="lang-switcher">
-                <img
-                  src={getFlagSrc(currentLang)}
-                  alt="lang"
-                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                  className="lang-icon"
-                />
-              </div>
+            <div className="lang-switcher">
+              <img
+                src={getFlagSrc(currentLang)}
+                alt="lang"
+                onClick={handleLangCycle}
+                className="lang-icon"
+              />
             </div>
           </div>
         </div>
-      </header>
-
-      {/* Портал меню языков */}
-      {isLangMenuOpen &&
-        ReactDOM.createPortal(
-          <div className="lang-menu-portal">
-            <img src={ruFlag} alt="Русский" onClick={() => handleLangChange('ru')} />
-            <img src={enFlag} alt="English" onClick={() => handleLangChange('en')} />
-            <img src={kgFlag} alt="Кыргызча" onClick={() => handleLangChange('kg')} />
-          </div>,
-          document.body
-        )
-      }
-    </>
+      </div>
+    </header>
   );
 }
 
